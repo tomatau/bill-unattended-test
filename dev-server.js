@@ -23,7 +23,7 @@ const
   { APP, ENTRY, SRC, DIST, port, host } = require('./build/paths')
 , makeConfig = require('./build/webpack.makeConfig')
 , configs = require('require-dir')(
-  path.join(__dirname, 'configs')
+  path.join(__dirname, 'build', 'configs')
 )
 
 const
