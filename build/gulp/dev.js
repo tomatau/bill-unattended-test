@@ -1,5 +1,6 @@
 const
   gulp = require('gulp')
+, log = require("color-util-logs")
 , $ = require('gulp-load-plugins')({ camelize: true, lazy: true })
 
 const
@@ -7,6 +8,6 @@ const
 
 module.exports = function(){
   gulp.task('dev', function(){
-    $.util.log(yellow('webpack dev server removed from project'))
+    log.warn('webpack dev server removed from project')
   })
 }

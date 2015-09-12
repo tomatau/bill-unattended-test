@@ -3,6 +3,7 @@ const
 , { argv } = require('yargs')
 , express = require('express')
 , webpack = require('webpack')
+, log = require("color-util-logs")
 
 const
   { APP, ENTRY, SRC, DIST, port, host } = require('./build/paths')
@@ -31,9 +32,9 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.listen(port, host, function (err) {
   if (err) {
-    console.log(err);
+    log.error(err);
     return;
   }
-  console.log(`Listening at http://${host}:${port}`);
+  log.notice(`Listening at http://${host}:${port}`);
   open(`http://${host}:${port}`)
 });

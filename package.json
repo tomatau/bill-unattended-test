@@ -15,6 +15,7 @@
     "babel-loader": "^5.3.2",
     "babel-plugin-react-transform": "^1.0.3",
     "babel-runtime": "^5.8.20",
+    "color-util-logs": "0.0.1",
     "css-loader": "^0.18.0",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.8.2",
