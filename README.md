@@ -1,2 +1,2 @@
 npm run gulp -- taskname
-npm run dev [-- configFile]
+npm run dev [-- --config==staging]

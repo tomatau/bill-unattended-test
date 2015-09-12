@@ -1,21 +1,6 @@
-/*
-  Needs to run in
-    : dev
-      - reload
-        NODE_ENV=development
-    : test
-      - reload
-        NODE_ENV='flexible'?
-    : production?
-      - reload?
-        NODE_ENV=production
-yargs:
-  env,
-  browser test uses diff entry (mocha!) and output (serve_test)
-    maybe different plugins...
- */
 const
   path = require('path')
+, { argv } = require('yargs')
 , express = require('express')
 , webpack = require('webpack')
 
@@ -29,7 +14,7 @@ const
 const
   app = express()
 , compiler = webpack(
-    makeConfig(configs.development)
+    makeConfig(configs[argv.config || 'development'])
   )
 , open = require('open')
 
