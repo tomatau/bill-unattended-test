@@ -1,42 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Meter from 'src/Meter';
+import { Provider } from 'react-redux';
+import App from 'src/components/smart/App';
 
-console.log(process.env.NODE_ENV)
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+const createStoreWithMiddleware = applyMiddleware(
+  thunk
+)(createStore);
 
-var Hello = ({who}) => (
-  <div>Hello {who}</div>
-);
+const configureStore = (initialState)=>{
+  const store = createStoreWithMiddleware(
+    (...args)=>args,
+    initialState
+  )
+  return store;
+}
 
-class MyComponent extends React.Component {
-  render() {
-    return (
-      <div>
-        <div style={{ display: 'inline-block' }}>
-          <Meter
-            width={144}
-            height={192}
-            series={[
-              {color: 'green', value: 22},
-              {color: 'orange', value: 98},
-              {color: 'blue', value: 30}
-            ]}
-          />
-        </div>
-        <div style={{
-          display: 'inline-block',
-          position: 'relative',
-          top: 56,
-          verticalAlign: 'top',
-          marginLeft: -70
-        }}>
-          <h2>Something</h2>
-        </div>
-      </div>
-    );
-  }
-};
+const store = configureStore()
 
 ReactDOM.render(
-  <MyComponent />, document.getElementById('app-container')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app-container')
 );

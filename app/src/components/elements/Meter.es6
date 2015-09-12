@@ -1,5 +1,6 @@
 import max from 'lodash/math/max';
 import React, {PropTypes} from 'react';
+import Path from 'src/components/elements/Path';
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n))
 
@@ -25,6 +26,18 @@ const arcCommands = (centerX, centerY, radius, startAngle, endAngle)=> {
   `;
 }
 
+/*
+container:
+  <div style={{ display: 'inline-block' }}>
+sibling:
+  <div style={{
+    display: 'inline-block',
+    position: 'relative',
+    top: 56,
+    verticalAlign: 'top',
+    marginLeft: -70
+  }}>
+ */
 class Meter extends React.Component {
 
   static propTypes = {
@@ -43,14 +56,13 @@ class Meter extends React.Component {
         }}
       >
         <g className="Meter--threshold">
-          <path fill='none' d={::this.calculateArc()}
-            style={{
+          <Path d={::this.calculateArc()} style={{
               stroke: 'rgba(221,221,221_WIDTH,0.5)',
               strokeWidth: STROKE_WIDTH
             }}
           />
         </g>
-        <g>
+        <g className="Meter--arcs">
           {::this.calculateSeries()}
         </g>
       </svg>
@@ -94,7 +106,7 @@ class Meter extends React.Component {
       let commands = this.arcCommands(startAngle, endAngle)
       startAngle = endAngle;
       return (
-        <path key={i} fill="none" d={commands} style={{
+        <Path key={i} d={commands} style={{
             stroke: item.color,
             strokeWidth: STROKE_WIDTH,
           }}
