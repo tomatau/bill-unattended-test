@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Meter from 'src/Meter';
 
 console.log(process.env.NODE_ENV)
 
@@ -9,7 +10,18 @@ var Hello = ({who}) => (
 
 class MyComponent extends React.Component {
   render() {
-    return <Hello who="world" />;
+    return (
+      <Meter
+        width={144}
+        height={192}
+        total={100}
+        series={[
+          {color: 'green', value: 22},
+          {color: 'orange', value: 48},
+          {color: 'blue', value: 30}
+        ]}
+      />
+    );
   }
 };
 
