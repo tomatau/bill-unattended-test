@@ -2,6 +2,7 @@ const
   webpack = require('webpack')
 , paths = require('./paths')
 , HtmlWebpackPlugin = require('html-webpack-plugin')
+, ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = makeConfig;
 
@@ -26,6 +27,9 @@ function makeConfig({entry, env, devtool, template, plugins}){
           'NODE_ENV': JSON.stringify(env)
         }
       }),
+      new ExtractTextPlugin("[name].[hash].css",{
+        allChunks: true
+      }),
       new HtmlWebpackPlugin({
         template: template,
         favicon: `${paths.SRC}/favicon.ico`
@@ -39,9 +43,9 @@ function makeConfig({entry, env, devtool, template, plugins}){
         test: /\.json$/,
         loader: "json"
       },{
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract('style', 'css')
-      // },{
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css')
+      },{
       //   test: /\.less$/,
       //   loader: ExtractTextPlugin.extract('style', 'css!less')
       // },{

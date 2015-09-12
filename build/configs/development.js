@@ -6,6 +6,9 @@ module.exports = {
   entry: {
     main: [
       'webpack-hot-middleware/client',
+      'purecss/build/base',
+      'purecss/build/grids',
+      'purecss/build/tables',
       ENTRY
     ]
   },
