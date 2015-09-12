@@ -1,14 +1,14 @@
 {
   "name": "bill-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bill challenge and testing out all the new stuff",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "node --harmony_destructuring `which gulp`",
     "dev": "node --harmony_destructuring dev-server.js"
   },
-  "author": "",
+  "author": "Tomatao",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^5.8.24",
