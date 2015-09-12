@@ -58,15 +58,16 @@ class Meter extends React.Component {
   }
 
   componentWillMount(){
-    const { width, height } = this.props;
+    const { width, height, series } = this.props;
     this.setState({
       breadth: max([width, height]) / 2,
-      radius: (width + height) / 4
+      radius: ((width + height) / 4) - STROKE_WIDTH,
+      total: series.reduce((acc, item)=> acc + item.value, 0)
     })
   }
 
   translateEndAngle(startAngle, value) {
-    const { total } = this.props;
+    const { total } = this.state;
     return clamp(startAngle + ((240.0 / total) * value), 0, 360)
   }
 

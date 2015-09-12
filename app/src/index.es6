@@ -11,16 +11,28 @@ var Hello = ({who}) => (
 class MyComponent extends React.Component {
   render() {
     return (
-      <Meter
-        width={144}
-        height={192}
-        total={100}
-        series={[
-          {color: 'green', value: 22},
-          {color: 'orange', value: 48},
-          {color: 'blue', value: 30}
-        ]}
-      />
+      <div>
+        <div style={{ display: 'inline-block' }}>
+          <Meter
+            width={144}
+            height={192}
+            series={[
+              {color: 'green', value: 22},
+              {color: 'orange', value: 98},
+              {color: 'blue', value: 30}
+            ]}
+          />
+        </div>
+        <div style={{
+          display: 'inline-block',
+          position: 'relative',
+          top: 56,
+          verticalAlign: 'top',
+          marginLeft: -70
+        }}>
+          <h2>Something</h2>
+        </div>
+      </div>
     );
   }
 };
