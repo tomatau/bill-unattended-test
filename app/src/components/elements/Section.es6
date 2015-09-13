@@ -1,12 +1,13 @@
 import React from 'react';
 import cx from 'classnames';
 
-export const Heading = ({ title, total, color }) => (
+export const Heading = ({ title, total, color, style }) => (
   <div style={{
     height: 120,
     backgroundColor: color,
     verticalAlign: 'text-top',
     color: 'white',
+    ...style
   }}>
     <div style={{
       position: 'relative',
@@ -28,12 +29,13 @@ export const Heading = ({ title, total, color }) => (
   </div>
 );
 
-export const SubHeading = ({ title, color }) => (
+export const SubHeading = ({ title, style, color }) => (
   <h4 style={{
     backgroundColor: color,
     margin: 0,
     padding: 10,
     textTransform: 'uppercase',
     textAlign: 'center',
+    ...style
   }}>{title}</h4>
 )

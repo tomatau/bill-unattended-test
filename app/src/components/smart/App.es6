@@ -1,13 +1,13 @@
 import React from 'react';
 import { Grid, Col } from 'src/components/elements/Pure';
-
-// import { PackagesTable } from 'src/components/sections/PackagesTable';
 import Meter from 'src/components/elements/Meter';
 import bill from '../bill';
 
 import {SkyStore} from 'src/components/sections/SkyStore';
 import {CallCharges} from 'src/components/sections/CallCharges';
 import {Packages} from 'src/components/sections/Packages';
+import {Statement} from 'src/components/sections/Statement';
+import {Period} from 'src/components/sections/Period';
 
 const containerStyles = {
   maxWidth: 994,
@@ -19,7 +19,10 @@ class App extends React.Component {
     return (
       <div>
         <Grid style={containerStyles}>
-          <Col u='1'>
+          <Col u='1' md='1-3'>
+            <Statement />
+          </Col>
+          <Col u='1' md='1-3'>
             <Meter
               width={144}
               height={188}
@@ -29,6 +32,9 @@ class App extends React.Component {
                 { value: bill.skyStore.total, color: '#2c4985' },
               ]}
             />
+          </Col>
+          <Col u='1' md='1-3'>
+            <Period />
           </Col>
         </Grid>
         <Grid style={containerStyles}>
