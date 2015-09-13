@@ -9,6 +9,8 @@ const createStoreWithMiddleware = applyMiddleware(
   thunk
 )(createStore);
 
+console.info(`Running in [${process.env.NODE_ENV}] environment.`)
+
 const configureStore = (initialState)=>{
   const store = createStoreWithMiddleware(
     (...args)=>args,

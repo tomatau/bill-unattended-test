@@ -9,7 +9,7 @@ module.exports = makeConfig;
 function makeConfig({entry, env, devtool, template, plugins}){
   return {
     entry,
-    devtool: devtool || 'cheap-source-map',
+    devtool: devtool || null,
     output: {
       path: paths.DIST,
       filename: '[name].[hash].js',
