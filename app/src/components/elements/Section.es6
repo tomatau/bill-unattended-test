@@ -13,6 +13,10 @@ export const Heading = ({ title, total, color, style }) => (
       position: 'relative',
       top: '50%',
       transform: 'translateY(-50%)',
+      'msTransform': 'translateY(-50%)',
+      'WebkitTransform': 'translateY(-50%)',
+      'MozTransform': 'translateY(-50%)',
+      'OTransform': 'translateY(-50%)',
       textAlign: 'center',
     }}>
       <h3 style={{
