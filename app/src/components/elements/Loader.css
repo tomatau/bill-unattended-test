@@ -65,3 +65,10 @@
   animation: loader 2000ms 450ms infinite ease-out;
   right: -1.6em;
 }
+
+.loader__container {
+  margin: 0 auto;
+  width: 67px;
+  font-size: initial;
+  margin-top: 10px;
+}
