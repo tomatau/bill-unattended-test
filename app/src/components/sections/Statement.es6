@@ -7,11 +7,12 @@ import { twoDP } from 'src/utils';
 export class Statement extends React.Component {
   render() {
     return (
-      <div className="statement" style={{ padding: '0 10px 15px' }}>
+      <div className="statement" style={{ padding: '20px 15px', height: 186 }}>
         <Section.Heading
           title='Statement Total'
           total={twoDP(bill.total)}
           style={{
+            height: '100%',
             backgroundColor: '#E0E0E0',
             color: '#000'
           }}

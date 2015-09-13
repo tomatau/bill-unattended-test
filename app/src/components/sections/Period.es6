@@ -7,7 +7,7 @@ import { niceDate } from 'src/utils';
 export class Period extends React.Component {
   render() {
     return (
-      <div className="period" style={{ padding: '0 10px 15px' }}>
+      <div className="period" style={{ padding: '20px 15px', height: 186 }}>
         <Section.SubHeading
           title={
             <Grid>
