@@ -48,9 +48,9 @@ To fit the use case of this bill, it has been developed with **low latency**. Cu
 
 ### Features
 
-- Hot reload developer experience
+- Hot reload developer experience, live reload fallback, sourcmaps
 - Fully responsive
-- Only 80KB compressed
+- Only 80KB compressed production build
 - Tested on Evergreen Safari, Chrome, Edge, IE11 & Firefox
 - Scrolling fixed header tables
 - Meter Component with complex animation and SVG display of bill

@@ -6,6 +6,11 @@ module.exports = {
   entry: {
     main: [
       'webpack-hot-middleware/client',
+      'purecss/build/base',
+      'purecss/build/grids',
+      'purecss/build/grids-responsive',
+      'purecss/build/tables',
+      `${SRC}/theme`,
       ENTRY
     ]
   },
@@ -14,6 +19,7 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin(),
   ]
 }
