@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import isEmpty from 'lodash/lang/isEmpty';
 import { connect } from 'react-redux';
 import * as Section from 'src/components/elements/Section';
 import { SubscriptionsTable } from 'src/components/elements/SubscriptionsTable';
@@ -32,7 +33,7 @@ export class Packages extends React.Component {
           color='#EFAB65'
           title='Subscriptions'
         />
-        {subscriptions
+        {!isEmpty(subscriptions)
           ? <SubscriptionsTable
               subscriptions={subscriptions}
             />

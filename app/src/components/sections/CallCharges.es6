@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import isEmpty from 'lodash/lang/isEmpty';
 import { connect } from 'react-redux';
 import * as Section from 'src/components/elements/Section';
 import { CallsTable } from 'src/components/elements/CallsTable';
@@ -32,7 +33,7 @@ export class CallCharges extends React.Component {
           color='#91C791'
           title='Calls'
         />
-        {calls
+        {!isEmpty(calls)
           ? <CallsTable
               calls={calls}
             />
