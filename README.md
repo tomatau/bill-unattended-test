@@ -59,6 +59,8 @@ To fit the use case of this bill, it has been developed with **low latency**. Cu
 - Redux library integration as an evolution after Flux
 - Reusible build tasks with gulp and webpack
 - Staging build
+- Loading spinners for initial feedback
+- React version 14 RC
 - Modern design patterns to control data flow, manage state and dependencies.
 
 
