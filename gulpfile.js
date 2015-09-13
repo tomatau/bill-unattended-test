@@ -14,5 +14,6 @@ const
 tasks.dev()
 tasks.clean('dist', [ `${DIST}/*` ])
 tasks.build(['clean.dist'], makeConfig(configs['production']))
+tasks.deploy(`${DIST}/*`)
 
 gulp.task('default', require('gulp-task-listing'))

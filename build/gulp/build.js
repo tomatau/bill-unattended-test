@@ -8,7 +8,6 @@ const
   { blue, magenta, yellow } = $.util.colors
 
 module.exports = function(deps, buildConfig){
-  console.log(deps)
   gulp.task('build', deps, function(done){
     process.env.NODE_ENV = 'production';
     webpack(buildConfig).run((err, stats) => {
