@@ -6,7 +6,7 @@ const clamp = (n, min, max) => Math.max(min, Math.min(max, n))
 
 const ANGLE_OFFSET = 90
   , START_ANGLE = 60
-  , STROKE_WIDTH = 10;
+  , STROKE_WIDTH = 20;
 
 const polarToCartesian = (centerX, centerY, radius, angleInDegrees)=>{
   const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
@@ -43,9 +43,12 @@ class Meter extends React.Component {
   static propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
+    series: PropTypes.array,
   }
 
-  state = {}
+  state = {
+    total: 0, breadth: 0, radius: 0
+  }
 
   render() {
     const { width, height } = this.props;
@@ -101,7 +104,7 @@ class Meter extends React.Component {
   calculateSeries(){
     const { series } = this.props;
     let startAngle = START_ANGLE;
-    return series.map((item, i)=>{
+    return series.reverse().map((item, i)=>{
       let endAngle = this.translateEndAngle(startAngle, item.value)
       let commands = this.arcCommands(startAngle, endAngle)
       startAngle = endAngle;

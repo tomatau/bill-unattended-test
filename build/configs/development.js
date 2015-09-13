@@ -8,7 +8,9 @@ module.exports = {
       'webpack-hot-middleware/client',
       'purecss/build/base',
       'purecss/build/grids',
+      'purecss/build/grids-responsive',
       'purecss/build/tables',
+      `${SRC}/theme`,
       ENTRY
     ]
   },
