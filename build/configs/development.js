@@ -18,7 +18,6 @@ module.exports = {
   env: 'development',
   devtool: 'eval',
   plugins: [
-    // new webpack.IgnorePlugin(/vertx/),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]

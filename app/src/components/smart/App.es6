@@ -1,20 +1,31 @@
 import React from 'react';
-import { Grid, Col } from 'src/components/elements/Pure';
-import Meter from 'src/components/elements/Meter';
-import bill from '../bill';
+import { connect } from 'react-redux';
 
+import { Grid, Col } from 'src/components/elements/Pure';
+
+/* Components */
 import {SkyStore} from 'src/components/sections/SkyStore';
 import {CallCharges} from 'src/components/sections/CallCharges';
 import {Packages} from 'src/components/sections/Packages';
 import {Statement} from 'src/components/sections/Statement';
 import {Period} from 'src/components/sections/Period';
+import {MeterSummary} from 'src/components/sections/MeterSummary';
+
+import { fetchBill } from 'src/actions';
 
 const containerStyles = {
   maxWidth: 994,
   margin: '0 auto'
 }
 
+@connect()
 class App extends React.Component {
+
+  componentDidMount(){
+    const { dispatch } = this.props;
+    dispatch(fetchBill())
+  }
+
   render() {
     return (
       <div>
@@ -23,15 +34,7 @@ class App extends React.Component {
             <Statement />
           </Col>
           <Col u='1' md='1-3'>
-            <Meter
-              width={144}
-              height={188}
-              series={[
-                { value: bill.package.total, color: '#CE7112' },
-                { value: bill.callCharges.total, color: '#519251' },
-                { value: bill.skyStore.total, color: '#2c4985' },
-              ]}
-            />
+            <MeterSummary />
           </Col>
           <Col u='1' md='1-3'>
             <Period />
