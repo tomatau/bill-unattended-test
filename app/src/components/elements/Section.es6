@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import {twoDP} from 'src/utils';
 
-export const Heading = ({ title, total, color, style }) => (
+export const Heading = ({ title, subtitle, color, style }) => (
   <div style={{
     height: 120,
     backgroundColor: color,
@@ -28,7 +28,7 @@ export const Heading = ({ title, total, color, style }) => (
         fontSize: 60,
         fontWeight: 'lighter',
       }}>
-        £{twoDP(total)}
+        {subtitle}
       </span>
     </div>
   </div>

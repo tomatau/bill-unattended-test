@@ -2,6 +2,9 @@ import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 import * as Section from 'src/components/elements/Section';
 import { SubscriptionsTable } from 'src/components/elements/SubscriptionsTable';
+import {twoDP} from 'src/utils';
+
+import Loader from 'src/components/elements/Loader';
 
 @connect(({bill})=>{
   return {
@@ -21,15 +24,20 @@ export class Packages extends React.Component {
         <Section.Heading
           color='#CE7112'
           title='Packages'
-          total={total || 0}
+          subtitle={total
+            ? `£${twoDP(total)}`
+            : <Loader />}
         />
         <Section.SubHeading
           color='#EFAB65'
           title='Subscriptions'
         />
-        <SubscriptionsTable
-          subscriptions={subscriptions}
-        />
+        {subscriptions
+          ? <SubscriptionsTable
+              subscriptions={subscriptions}
+            />
+          : <Loader />
+        }
       </div>
     );
   }
