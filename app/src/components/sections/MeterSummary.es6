@@ -5,6 +5,15 @@ import Meter from 'src/components/elements/Meter';
 import bill from '../bill';
 import {twoDP} from 'src/utils';
 
+const Box = ({ color })=>
+  <div style={{
+    backgroundColor: color,
+    width: 20,
+    height: 20,
+    display:' inline-block',
+    marginRight: 10
+  }} />
+
 @connect(({bill})=>{
   return {
     package: bill.package,
@@ -53,9 +62,20 @@ export class MeterSummary extends React.Component {
           <h2 style={{
             fontWeight: 'lighter',
           }}>
-            <Box /> £{twoDP(Number(bill.package.total))} Packages <br/>
-            <Box /> £{twoDP(Number(bill.callCharges.total))} Call Charges<br/>
-            <Box /> £{twoDP(Number(bill.skyStore.total))} Sky Store<br/>
+            <Box color='#CE7112' />
+            <span style={{ display: 'inline-block'}}>
+              £{twoDP(Number(bill.package.total))} Packages</span>
+            <br/>
+            <Box color='#519251' />
+            <span style={{ display: 'inline-block'}}>
+              £{twoDP(Number(bill.callCharges.total))} Call Charges
+            </span>
+            <br/>
+            <Box color='#2c4985' />
+            <span style={{ display: 'inline-block'}}>
+              £{twoDP(Number(bill.skyStore.total))} Sky Store
+            </span>
+            <br/>
           </h2>
         </div>
       </div>
