@@ -34,9 +34,11 @@ Finally run the cypress test suite.
 ```
 npm run gulp -- build
 npm run gulp -- serve.dist &
-cypress ci 59323be9-33ed-40e5-aeac-0f097c299dc6
+cypress run
 kill %1
 ```
+
+![screenshot](./ci-screenshot.jpg)
 
 ### Notes
 
