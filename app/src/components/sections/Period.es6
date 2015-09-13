@@ -13,10 +13,10 @@ export class Period extends React.Component {
         <Section.SubHeading
           title={
             <Grid>
-              <Col u='5-12' style={{ padding: '0.6rem 0' }}>
+              <Col u='1-2' style={{ padding: '0.6rem 0' }}>
                 Generated
               </Col>
-              <Col u='7-12' style={{ padding: '0.6rem 0', backgroundColor: 'white' }}>
+              <Col u='1-2' style={{ padding: '0.6rem 0', backgroundColor: 'white' }}>
                 {niceDate(bill.statement.generated)}
               </Col>
             </Grid>
@@ -30,10 +30,10 @@ export class Period extends React.Component {
         <Section.SubHeading
           title={
             <Grid>
-              <Col u='5-12' style={{ padding: '0.6rem 0' }}>
+              <Col u='1-2' style={{ padding: '0.6rem 0' }}>
                 Due
               </Col>
-              <Col u='7-12' style={{ padding: '0.6rem 0', backgroundColor: 'white' }}>
+              <Col u='1-2' style={{ padding: '0.6rem 0', backgroundColor: 'white' }}>
                 {niceDate(bill.statement.due)}
               </Col>
             </Grid>

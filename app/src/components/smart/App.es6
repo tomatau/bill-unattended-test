@@ -20,8 +20,10 @@ const containerStyles = {
 }
 
 @connect(({bill})=>{
+  console.log(bill)
   return {
-    statement: bill.statement
+    statement: bill.statement,
+    total: bill.total,
   }
 })
 class App extends React.Component {
@@ -32,7 +34,8 @@ class App extends React.Component {
   }
 
   render() {
-    const { statement } = this.props;
+    const { statement, total } = this.props;
+    console.log(total)
     return (
       <div>
         <Grid style={containerStyles}>
@@ -50,7 +53,10 @@ class App extends React.Component {
             <Statement />
           </Col>
           <Col u='1' md='1-3'>
-            {/*<MeterSummary />*/}
+            {total == null ? null : <MeterSummary style={{
+              padding: '20px 15px',
+              height: 190
+            }}/>}
           </Col>
           <Col u='1' md='1-3'>
             {isEmpty(statement) ? null : <Period />}

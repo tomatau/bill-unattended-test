@@ -26,18 +26,6 @@ const arcCommands = (centerX, centerY, radius, startAngle, endAngle)=> {
   `;
 }
 
-/*
-container:
-  <div style={{ display: 'inline-block' }}>
-sibling:
-  <div style={{
-    display: 'inline-block',
-    position: 'relative',
-    top: 56,
-    verticalAlign: 'top',
-    marginLeft: -70
-  }}>
- */
 class Meter extends React.Component {
 
   static propTypes = {
