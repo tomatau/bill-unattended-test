@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import {twoDP} from 'src/utils';
 
 export const Heading = ({ title, total, color, style }) => (
   <div style={{
@@ -27,7 +28,7 @@ export const Heading = ({ title, total, color, style }) => (
         fontSize: 60,
         fontWeight: 'lighter',
       }}>
-        £{total}
+        £{twoDP(total)}
       </span>
     </div>
   </div>
