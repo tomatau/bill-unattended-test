@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/lang/isEmpty';
 import { connect } from 'react-redux';
 
 import { Grid, Col } from 'src/components/elements/Pure';
@@ -18,7 +19,11 @@ const containerStyles = {
   margin: '0 auto'
 }
 
-@connect()
+@connect(({bill})=>{
+  return {
+    statement: bill.statement
+  }
+})
 class App extends React.Component {
 
   componentDidMount(){
@@ -27,6 +32,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { statement } = this.props;
     return (
       <div>
         <Grid style={containerStyles}>
@@ -37,7 +43,7 @@ class App extends React.Component {
             <MeterSummary />
           </Col>
           <Col u='1' md='1-3'>
-            <Period />
+            {isEmpty(statement) ? null : <Period />}
           </Col>
         </Grid>
         <Grid style={containerStyles}>
