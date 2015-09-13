@@ -36,6 +36,16 @@ class App extends React.Component {
     return (
       <div>
         <Grid style={containerStyles}>
+          <Col u='1'>
+            <h1 style={{
+              margin: '10px 10px 0',
+              color: '#E0E0E0',
+              textAlign: 'center',
+              fontWeight: 'lighter'
+            }}>
+              Customer Bill
+            </h1>
+          </Col>
           <Col u='1' md='1-3'>
             <Statement />
           </Col>

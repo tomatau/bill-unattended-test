@@ -17,7 +17,11 @@ export class Statement extends React.Component {
         padding: '20px 15px', height: 190
       }}>
         <Section.Heading
-          title='Statement Total'
+          title={
+            <span>
+              Statement Total
+            </span>
+          }
           subtitle={total
             ? `£${twoDP(total)}`
             : <Loader />}
