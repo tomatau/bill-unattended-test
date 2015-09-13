@@ -1,0 +1,10 @@
+{
+  "cypress": {
+    "projectId": "59323be9-33ed-40e5-aeac-0f097c299dc6",
+    "testFolder": "app/test/ci",
+    "fixturesFolder": "app/test/ci/_fixtures",
+    "supportFolder": "app/test/ci/_support",
+    "viewportWidth": 1300,
+    "viewportHeight": 660
+  }
+}

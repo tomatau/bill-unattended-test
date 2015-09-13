@@ -35,7 +35,7 @@ class App extends React.Component {
   render() {
     const { statement, total } = this.props;
     return (
-      <div>
+      <div className='app-root'>
         <Grid style={containerStyles}>
           <Col u='1'>
             <h1 style={{

@@ -15,5 +15,10 @@ tasks.dev()
 tasks.clean('dist', [ `${DIST}/*` ])
 tasks.build(['clean.dist'], makeConfig(configs['production']))
 tasks.deploy(`${DIST}/*`)
+tasks.serve('dist', {
+  root: DIST,
+  host: 'localhost',
+  port: '9999'
+})
 
 gulp.task('default', require('gulp-task-listing'))
