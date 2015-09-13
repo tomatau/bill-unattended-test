@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
-import App from 'src/components/smart/App';
+import App from 'src/components/App';
 import configureStore from 'src/store/configureStore';
 
 console.info(`Running in [${process.env.NODE_ENV}] environment.`)
