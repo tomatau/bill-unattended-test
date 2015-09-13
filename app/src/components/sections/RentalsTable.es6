@@ -1,26 +1,19 @@
 import React from 'react';
 import * as Pure from 'src/components/elements/Pure';
+import {FixedHeaderTable} from 'src/components/elements/FixedHeaderTable';
 import bill from '../bill';
+import {twoDP} from 'src/utils';
 
 export class RentalsTable extends React.Component {
   render() {
     return (
-      <Pure.Table style={{ width: '100%' }}>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th style={{ width: '26%' }}>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bill.skyStore.rentals.map((rental, i) =>
-            <tr key={i}>
-              <td>{rental.title}</td>
-              <td>£{rental.cost}</td>
-            </tr>
-          )}
-        </tbody>
-      </Pure.Table>
+      <FixedHeaderTable
+        columns={[
+          { header: 'Title', width: '74%', getValue: (item)=>item.title },
+          { header: 'Cost', width: '26%', getValue: (item)=>`£${twoDP(item.cost)}` },
+        ]}
+        items={bill.skyStore.rentals}
+      />
     );
   }
 }

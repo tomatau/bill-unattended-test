@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Section from 'src/components/elements/Section';
 import { CallsTable } from 'src/components/sections/CallsTable';
-
+import {twoDP} from 'src/utils';
 import bill from '../bill';
 
 export class CallCharges extends React.Component {
@@ -12,7 +12,7 @@ export class CallCharges extends React.Component {
         <Section.Heading
           color='#519251'
           title='Call Charges'
-          total={bill.callCharges.total}
+          total={twoDP(bill.callCharges.total)}
         />
         <Section.SubHeading
           color='#91C791'
