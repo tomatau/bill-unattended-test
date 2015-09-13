@@ -40,7 +40,7 @@ class App extends React.Component {
             <Statement />
           </Col>
           <Col u='1' md='1-3'>
-            <MeterSummary />
+            {/*<MeterSummary />*/}
           </Col>
           <Col u='1' md='1-3'>
             {isEmpty(statement) ? null : <Period />}
