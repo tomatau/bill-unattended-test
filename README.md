@@ -56,12 +56,13 @@ To fit the use case of this bill, it has been developed with **low latency**. Cu
 - Meter Component with complex animation and SVG display of bill
 - CI tests
 - Easy to maintain and improve UX
-- Redux library integration as an evolution after Flux
+- Redux library integration as an evolution beyond the Flux design pattern
 - Reusible build tasks with gulp and webpack
 - Staging build
 - Loading spinners for initial feedback
 - React version 14 RC
 - Modern design patterns to control data flow, manage state and dependencies.
+- Only one global NPM dependency for running CI tests
 
 
 
