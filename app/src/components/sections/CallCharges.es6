@@ -31,7 +31,7 @@ export class CallCharges extends React.Component {
         />
         <Section.SubHeading
           color='#91C791'
-          title='Calls'
+          title={`${calls.length} Calls`}
         />
         {!isEmpty(calls)
           ? <CallsTable

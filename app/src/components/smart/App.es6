@@ -20,7 +20,6 @@ const containerStyles = {
 }
 
 @connect(({bill})=>{
-  console.log(bill)
   return {
     statement: bill.statement,
     total: bill.total,
@@ -35,7 +34,6 @@ class App extends React.Component {
 
   render() {
     const { statement, total } = this.props;
-    console.log(total)
     return (
       <div>
         <Grid style={containerStyles}>

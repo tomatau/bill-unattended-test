@@ -31,7 +31,7 @@ export class Packages extends React.Component {
         />
         <Section.SubHeading
           color='#EFAB65'
-          title='Subscriptions'
+          title={`${subscriptions.length} Subscriptions`}
         />
         {!isEmpty(subscriptions)
           ? <SubscriptionsTable

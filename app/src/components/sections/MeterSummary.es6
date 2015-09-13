@@ -8,11 +8,24 @@ import {twoDP} from 'src/utils';
 const Box = ({ color })=>
   <div style={{
     backgroundColor: color,
-    width: 20,
-    height: 20,
+    width: 14,
+    height: 14,
     display:' inline-block',
     marginRight: 10
   }} />
+
+
+function easeOutBounce(t, c=1, b=0, d=1) {
+  if ((t/=d) < (1/2.75)) {
+    return c*(7.5625*t*t) + b;
+  } else if (t < (2/2.75)) {
+    return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+  } else if (t < (2.5/2.75)) {
+    return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+  } else {
+    return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+  }
+}
 
 @connect(({bill})=>{
   return {
@@ -24,14 +37,13 @@ const Box = ({ color })=>
 })
 export class MeterSummary extends React.Component {
 
-  // shouldComponentUpdate(){
-  //   return false;
-  // }
+  state = {
+    percent: 0
+  }
 
   render() {
-    console.log(bill)
     const { style, total } = this.props;
-    console.log(total)
+    const { percent } = this.state;
     return (
       <div className='hidden-sm' style={{
         ...style, position: 'absolute'
@@ -44,6 +56,7 @@ export class MeterSummary extends React.Component {
           <Meter
             width={200}
             height={200}
+            percent={easeOutBounce(percent)}
             series={[
               { value: bill.package.total, color: '#CE7112' },
               { value: bill.callCharges.total, color: '#519251' },
@@ -56,29 +69,52 @@ export class MeterSummary extends React.Component {
           position: 'relative',
           top: 36,
           verticalAlign: 'top',
-          marginLeft: -160,
+          marginLeft: -170,
           color: 'white',
         }}>
           <h2 style={{
             fontWeight: 'lighter',
           }}>
             <Box color='#CE7112' />
-            <span style={{ display: 'inline-block'}}>
-              £{twoDP(Number(bill.package.total))} Packages</span>
+            <small style={{ display: 'inline-block'}}>
+              <span style={{ marginRight: 5 }}>
+                £{twoDP(Number(bill.package.total))}
+              </span> Packages
+            </small>
             <br/>
             <Box color='#519251' />
-            <span style={{ display: 'inline-block'}}>
-              £{twoDP(Number(bill.callCharges.total))} Call Charges
-            </span>
+            <small style={{ display: 'inline-block'}}>
+              <span style={{ marginRight: 5 }}>
+                £{twoDP(Number(bill.callCharges.total))}
+              </span> Call Charges
+            </small>
             <br/>
             <Box color='#2c4985' />
-            <span style={{ display: 'inline-block'}}>
-              £{twoDP(Number(bill.skyStore.total))} Sky Store
-            </span>
+            <small style={{ display: 'inline-block'}}>
+              <span style={{ marginRight: 5 }}>
+                £{twoDP(Number(bill.skyStore.total))}
+              </span> Sky Store
+            </small>
             <br/>
           </h2>
         </div>
       </div>
     );
+  }
+
+  componentDidMount(){
+    var start = null;
+    var duration = 1500;
+    const step = (timestamp) => {
+      if (start == null) start = timestamp;
+      let progress = timestamp - start;
+      if (progress < duration) {
+        this.setState({
+          percent: progress / duration
+        })
+        window.requestAnimationFrame(step)
+      }
+    }
+    window.requestAnimationFrame(step)
   }
 }

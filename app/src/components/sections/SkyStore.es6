@@ -32,7 +32,7 @@ export class SkyStore extends React.Component {
         />
         <Section.SubHeading
           color='#83B9E8'
-          title='Rentals'
+          title={`${rentals.length} Rentals`}
         />
         {!isEmpty(rentals)
           ? <RentalsTable
@@ -42,7 +42,7 @@ export class SkyStore extends React.Component {
         }
         <Section.SubHeading
           color='#83B9E8'
-          title='Buy and Keep'
+          title={`${buyAndKeep.length} Buy and Keep`}
         />
         {!isEmpty(buyAndKeep)
           ? <BuyAndKeepTable

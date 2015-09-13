@@ -4,8 +4,8 @@ import Path from 'src/components/elements/Path';
 
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n))
 
-const ANGLE_OFFSET = 90
-  , START_ANGLE = 60
+const ANGLE_OFFSET = 100
+  , START_ANGLE = 50
   , STROKE_WIDTH = 20;
 
 const polarToCartesian = (centerX, centerY, radius, angleInDegrees)=>{
@@ -29,13 +29,14 @@ const arcCommands = (centerX, centerY, radius, startAngle, endAngle)=> {
 class Meter extends React.Component {
 
   static propTypes = {
+    percent: PropTypes.number,
     width: PropTypes.number,
     height: PropTypes.number,
     series: PropTypes.array,
   }
 
   state = {
-    total: 0, breadth: 0, radius: 0
+    total: 0, breadth: 0, radius: 0, percent: 0
   }
 
   render() {
@@ -86,14 +87,17 @@ class Meter extends React.Component {
   }
 
   calculateArc(){
-    return this.arcCommands(START_ANGLE, this.translateEndAngle(START_ANGLE, 100));
+    return this.arcCommands(
+      START_ANGLE,
+      this.translateEndAngle(START_ANGLE, 100)
+    );
   }
 
   calculateSeries(){
-    const { series } = this.props;
+    const { series, percent } = this.props;
     let startAngle = START_ANGLE;
     return series.reverse().map((item, i)=>{
-      let endAngle = this.translateEndAngle(startAngle, item.value)
+      let endAngle = this.translateEndAngle(startAngle, item.value * percent)
       let commands = this.arcCommands(startAngle, endAngle)
       startAngle = endAngle;
       return (
